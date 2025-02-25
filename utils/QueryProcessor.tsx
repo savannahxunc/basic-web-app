@@ -51,17 +51,21 @@ export default function QueryProcessor(query: string): string {
     }
   }
 
-  if (query.toLowerCase().includes("both a square and a cube")) {
+  if (query.toLowerCase().includes("square") && query.toLowerCase().includes("cube")) {
     const numbers = query.match(/\d+/g);
-    if (numbers && numbers.length >= 1) {
-        const sixthPowers = numbers.filter(num => {
-            const n = parseInt(num, 10);
-            const sixthRoot = Math.pow(n, 1/6);
-            return Number.isInteger(sixthRoot);
-        });
-        return sixthPowers.join(", ");
+    if (numbers) {
+      const isSquareAndCube = (num: number) => {
+        const sqrt = Math.sqrt(num);
+        const cbrt = Math.cbrt(num);
+        return Number.isInteger(sqrt) && Number.isInteger(cbrt);
+      };
+
+      const result = numbers.find((num) => isSquareAndCube(Number(num)));
+      if (result) {
+        return result;
+      }
     }
-}
+  }
 
 
   if (query.toLowerCase().includes("multiplied by")) {
