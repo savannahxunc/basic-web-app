@@ -50,6 +50,10 @@ describe("QueryProcessor", () => {
         expect(response).toBe("27");
     });
 
-    
+    test('should return the result of a number to the power of another number', () => {
+        const query = "What is 90 to the power of 19?";
+        const response: string = QueryProcessor(query);
+        expect(response).toBe(Math.pow(90, 19).toString());
+    });
 
 });

@@ -104,6 +104,20 @@ if (query.toLowerCase().includes("minus")) {
 }
 
 
+if (query.toLowerCase().includes("to the power of")) {
+  const numbers = query.match(/\d+/g);
+  if (numbers && numbers.length >= 2) {
+      const base = parseInt(numbers[0], 10);
+      const exponent = parseInt(numbers[1], 10);
+      return Math.pow(base, exponent).toString();
+  }
+}
+
+
+
+
+
+
 
 return "";
 }
