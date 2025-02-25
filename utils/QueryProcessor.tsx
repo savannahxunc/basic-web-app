@@ -58,7 +58,7 @@ export default function QueryProcessor(query: string): string {
       return (num1 * num1).toString();
     }
   }
-  if (query.toLowerCase().includes("multiplied")) {
+  if (query.toLowerCase().includes("multiplied by")) {
     const numbers = query.match(/\d+/g);
     if (numbers && numbers.length >= 2) {
       const num1 = parseInt(numbers[0], 10);
