@@ -56,4 +56,11 @@ describe("QueryProcessor", () => {
         expect(response).toBe(Math.pow(90, 19).toString());
     });
 
+    test('should return sum of multiple numbers', () => {
+        const query = "What is 35 plus 75 plus 95?";
+        const response: string = QueryProcessor(query);
+        expect(response).toBe("205");
+    });
+
+
 });
