@@ -77,5 +77,33 @@ export default function QueryProcessor(query: string): string {
     }
   }
 
-  return "";
+  if (query.toLowerCase().includes("are primes")) {
+    const numbers = query.match(/\d+/g);
+    if (numbers) {
+        const isPrime = (num: number) => {
+            if (num <= 1) return false;
+            for (let i = 2; i <= Math.sqrt(num); i++) {
+                if (num % i === 0) return false;
+            }
+            return true;
+        };
+
+        const primes = numbers.filter(num => isPrime(parseInt(num, 10)));
+        return primes.join(", ");
+    }
+
+}
+
+if (query.toLowerCase().includes("minus")) {
+  const numbers = query.match(/\d+/g);
+  if (numbers && numbers.length >= 2) {
+      const num1 = parseInt(numbers[0], 10);
+      const num2 = parseInt(numbers[1], 10);
+      return (num1 - num2).toString();
+  }
+}
+
+
+
+return "";
 }

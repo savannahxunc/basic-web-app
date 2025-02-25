@@ -40,4 +40,16 @@ describe("QueryProcessor", () => {
         expect(response).toBe("123");
     });
 
+    
+ 
+
+
+    test('should return difference of two numbers', () => {
+        const query = "What is 67 minus 40?";
+        const response: string = QueryProcessor(query);
+        expect(response).toBe("27");
+    });
+
+    
+
 });
